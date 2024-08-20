@@ -26,3 +26,12 @@ def test_get_records_with_one_record():
     records = collection.get_records()
     assert len(records) == 1
     assert records == [record]
+
+
+def test_get_record_with_title():
+    collection = RecordCollection()
+    title = "Hear Nothing See Nothing Say Nothing"
+    artist = "Discharge"
+    record = collection.add_record(title, artist)
+    record_by_title = collection.get_record(title)
+    assert record_by_title == record

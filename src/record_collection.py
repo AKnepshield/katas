@@ -9,3 +9,8 @@ class RecordCollection:
 
     def get_records(self):
         return self.records
+
+    def get_record(self, title):
+        for record in self.records:
+            if record["title"] == title:
+                return record
