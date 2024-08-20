@@ -5,7 +5,9 @@ def test_add_record():
     collection = RecordCollection()
     title = "Hear Nothing See Nothing Say Nothing"
     artist = "Discharge"
+
     collection.add_record(title, artist)
+
     assert len(collection.records) == 1
     record = collection.records[0]
     assert record["artist"] == artist
@@ -14,7 +16,9 @@ def test_add_record():
 
 def test_get_records():
     collection = RecordCollection()
+
     records = collection.get_records()
+
     assert records == []
 
 
@@ -23,7 +27,9 @@ def test_get_records_with_one_record():
     title = "Hear Nothing See Nothing Say Nothing"
     artist = "Discharge"
     record = collection.add_record(title, artist)
+
     records = collection.get_records()
+
     assert len(records) == 1
     assert records == [record]
 
@@ -33,5 +39,15 @@ def test_get_record_with_title():
     title = "Hear Nothing See Nothing Say Nothing"
     artist = "Discharge"
     record = collection.add_record(title, artist)
+
     record_by_title = collection.get_record(title)
+
     assert record_by_title == record
+
+
+def test_get_record_with_empty_collection():
+    collection = RecordCollection()
+
+    record = collection.get_record("test title")
+
+    assert record == None
