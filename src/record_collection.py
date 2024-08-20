@@ -4,5 +4,8 @@ class RecordCollection:
 
     def add_record(self, title, artist):
         record = {"title": title, "artist": artist}
-        collection = self.records.append(record)
-        return collection
+        self.records.append(record)
+        return record
+
+    def get_records(self):
+        return self.records
