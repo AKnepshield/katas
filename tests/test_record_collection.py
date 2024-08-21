@@ -28,10 +28,12 @@ def test_get_records_with_one_record():
     artist = "Discharge"
     record = collection.add_record(title, artist)
 
-    records = collection.get_records()
+    actual_record_collection = collection.get_records()
 
-    assert len(records) == 1
-    assert records == [record]
+    record_collection_length = len(actual_record_collection)
+    expected_record_collection = [{"title": title, "artist": artist}]
+    assert record_collection_length == 1
+    assert expected_record_collection == actual_record_collection
 
 
 def test_get_record_with_title():
