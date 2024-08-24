@@ -54,3 +54,17 @@ def test_remove_record_by_title():
 
     assert removed_record == expected_removed_record
     assert expected_collection_without_removed_record == current_collection
+
+
+def test_count_records():
+    collection = RecordCollection()
+    collection.add_record("Peace & Security", "Death Threat")
+    collection.add_record("Big Kiss Goodnight", "Trapped Under Ice")
+    collection.add_record("Heatwave", "Trapped Under Ice")
+    collection.add_record("World Be Free", "World Be Free")
+
+    record_count = collection.count_records()
+
+    expected_count = 4
+
+    assert expected_count == record_count
