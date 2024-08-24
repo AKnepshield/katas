@@ -13,3 +13,6 @@ class RecordCollection:
             if record["title"] == title:
                 return record
         return None
+
+    def get_record_collection(self):
+        return self.record_collection
