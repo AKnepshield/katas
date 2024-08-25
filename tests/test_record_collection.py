@@ -73,3 +73,17 @@ def test_count_records():
     expected_count = 4
 
     assert counted_records == expected_count
+
+
+def test_list_unique_artists():
+    collection = RecordCollection()
+    collection.add_record("Misfits", "Hybrid Moments")
+    collection.add_record("Misfits", "Earth AD")
+    collection.add_record("Danzig", "Danzig I")
+    collection.add_record("Samhain", "Initium")
+
+    unique_artists = collection.list_unique_artists()
+
+    expected_artists = ["Misfits", "Danzig", "Samhain"]
+
+    assert sorted(expected_artists) == sorted(unique_artists)

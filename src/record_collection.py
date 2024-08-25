@@ -24,3 +24,9 @@ class RecordCollection:
 
     def count_records(self):
         return len(self.record_collection)
+
+    def list_unique_artists(self):
+        artists = set()
+        for record in self.record_collection:
+            artists.add(record["artist"])
+        return list(artists)
