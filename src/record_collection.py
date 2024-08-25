@@ -21,3 +21,6 @@ class RecordCollection:
             if record["title"] == title:
                 self.record_collection.remove(record)
                 return self.record_collection
+
+    def count_records(self):
+        return len(self.record_collection)

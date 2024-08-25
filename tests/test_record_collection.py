@@ -59,3 +59,17 @@ def test_remove_record_by_title():
     ]
 
     assert expected_collection == collection_without_removed_record
+
+
+def test_count_records():
+    collection = RecordCollection()
+    collection.add_record("Misfits", "Hybrid Moments")
+    collection.add_record("Misfits", "Earth AD")
+    collection.add_record("Danzig", "Danzig I")
+    collection.add_record("Samhain", "Initium")
+
+    counted_records = collection.count_records()
+
+    expected_count = 4
+
+    assert counted_records == expected_count
