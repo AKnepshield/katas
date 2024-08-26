@@ -2,14 +2,14 @@ from src.record_collection import RecordCollection
 
 
 def test_add_record():
-    collection = RecordCollection()
+    collection = RecordCollection("andy")
     record = collection.add_record("The Smiths", "Hatful Of Hollow")
     expected_record = {"artist": "The Smiths", "title": "Hatful Of Hollow"}
     assert expected_record == record
 
 
 def test_get_record_by_title():
-    collection = RecordCollection()
+    collection = RecordCollection("andy")
     collection.add_record("The Smiths", "Hatful Of Hollow")
     retrieved_record = collection.get_record_by_title("Hatful Of Hollow")
     expected_record = {"artist": "The Smiths", "title": "Hatful Of Hollow"}
@@ -17,7 +17,7 @@ def test_get_record_by_title():
 
 
 def test_get_record_collection():
-    collection = RecordCollection()
+    collection = RecordCollection("andy")
     collection.add_record("The Smiths", "Hatful Of Hollow")
     collection.add_record("The Smiths", "The Queen Is Dead")
     collection.add_record("The Smiths", "Strangeways")
@@ -31,7 +31,7 @@ def test_get_record_collection():
 
 
 def test_remove_record():
-    collection = RecordCollection()
+    collection = RecordCollection("andy")
     collection.add_record("The Smiths", "Hatful Of Hollow")
     collection.add_record("The Smiths", "The Queen Is Dead")
     collection.add_record("The Smiths", "Strangeways")
@@ -45,7 +45,7 @@ def test_remove_record():
 
 
 def test_count_records():
-    collection = RecordCollection()
+    collection = RecordCollection("andy")
     collection.add_record("The Smiths", "Hatful Of Hollow")
     collection.add_record("The Smiths", "The Queen Is Dead")
     collection.add_record("The Smiths", "Strangeways")
@@ -55,7 +55,7 @@ def test_count_records():
 
 
 def test_list_unique_artists():
-    collection = RecordCollection()
+    collection = RecordCollection("andy")
     collection.add_record("The Smiths", "Hatful Of Hollow")
     collection.add_record("The Smiths", "The Queen Is Dead")
     collection.add_record("The Smiths", "Strangeways")
@@ -63,3 +63,10 @@ def test_list_unique_artists():
     listed_artists = collection.list_unique_artists()
     expected_listed_artists = ["The Smiths", "Morrissey"]
     assert sorted(expected_listed_artists) == sorted(listed_artists)
+
+
+def test_collection_has_owner():
+    collection = RecordCollection("andy")
+    owner = collection.get_owner()
+
+    assert owner == "andy"

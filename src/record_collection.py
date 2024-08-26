@@ -1,6 +1,7 @@
 class RecordCollection:
-    def __init__(self):
+    def __init__(self, owner):
         self.record_collection = []
+        self.owner = owner
 
     def add_record(self, artist, title):
         record = {"artist": artist, "title": title}
@@ -31,3 +32,6 @@ class RecordCollection:
             if record["artist"] not in artists:
                 artists.append(record["artist"])
         return artists
+
+    def get_owner(self):
+        return self.owner
