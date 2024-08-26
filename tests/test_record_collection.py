@@ -69,3 +69,17 @@ def test_count_records():
     # Assert
     expected_count = 3
     assert expected_count == record_count
+
+
+def test_list_unique_artists():
+    # Arrange
+    collection = RecordCollection()
+    collection.add_record("The Smiths", "Hatful Of Hollow")
+    collection.add_record("The Smiths", "The Queen Is Dead")
+    collection.add_record("The Smiths", "Strangeways, Here We Come")
+    collection.add_record("Morrissey", "Your Arsenal")
+    # Act
+    current_artists = collection.list_unique_artists()
+    expected_list_of_unique_artists = ["The Smiths", "Morrissey"]
+    # Assert
+    assert sorted(expected_list_of_unique_artists) == sorted(current_artists)
