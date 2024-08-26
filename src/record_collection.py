@@ -15,3 +15,10 @@ class RecordCollection:
 
     def get_record_collection(self):
         return self.record_collection
+
+    def remove_record_by_title(self, title):
+        for record in self.record_collection:
+            if record["title"] == title:
+                self.record_collection.remove(record)
+                return record
+        return None
