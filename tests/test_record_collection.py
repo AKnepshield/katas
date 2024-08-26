@@ -17,3 +17,20 @@ def test_get_record_by_title():
     expected_record = {"artist": "The Smiths", "title": "Hatful Of Hollow"}
     # Assert
     assert retrieved_record == expected_record
+
+
+def test_get_record_collection():
+    # Arrange
+    collection = RecordCollection()
+    collection.add_record("The Smiths", "Hatful Of Hollow")
+    collection.add_record("The Smiths", "The Queen Is Dead")
+    collection.add_record("The Smiths", "Strangeways, Here We Come")
+    # Act
+    record_collection = collection.get_record_collection()
+    # Assert
+    expected_collection = [
+        {"artist": "The Smiths", "title": "Hatful Of Hollow"},
+        {"artist": "The Smiths", "title": "The Queen Is Dead"},
+        {"artist": "The Smiths", "title": "Strangeways, Here We Come"},
+    ]
+    assert expected_collection == record_collection
