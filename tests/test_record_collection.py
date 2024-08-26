@@ -54,3 +54,18 @@ def test_remove_record_by_title():
     # Assert
     assert expected_removed_record == record_to_remove
     assert current_collection_without_record == current_collection
+
+
+def test_count_records():
+    # Arrange
+    collection = RecordCollection()
+    collection.add_record("The Smiths", "Hatful Of Hollow")
+    collection.add_record("The Smiths", "The Queen Is Dead")
+    collection.add_record("The Smiths", "Strangeways, Here We Come")
+
+    # Act
+    record_count = collection.count_records()
+
+    # Assert
+    expected_count = 3
+    assert expected_count == record_count

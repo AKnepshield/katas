@@ -22,3 +22,6 @@ class RecordCollection:
                 self.record_collection.remove(record)
                 return record
         return None
+
+    def count_records(self):
+        return len(self.record_collection)
