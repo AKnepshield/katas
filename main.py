@@ -2,7 +2,7 @@ from src.record_collection import RecordCollection
 from src.json_file_manager import JsonFileManager
 
 
-def run(andys_collection, in_mem_collection, json_manager):
+def run(andys_collection, in_mem_collection, json_manager, owner):
     count = 0
 
     while count < 2:
@@ -11,37 +11,48 @@ def run(andys_collection, in_mem_collection, json_manager):
         collection = andys_collection.add_record(artist, album)
         retrieved_collection = andys_collection.get_record_collection()
         print(retrieved_collection)
-        in_mem_collection["andy"] = andys_collection.get_record_collection()
+        in_mem_collection[owner] = andys_collection.get_record_collection()
         json_manager.write_data(in_mem_collection)
         count += 1
 
 
-def setup():
-    json_manager = JsonFileManager("collection.json")
+def create_new_owner(in_mem_collection, json_manager):
+    new_owner = input("Add new owner's name: ")
+    in_mem_collection[new_owner] = []
+    json_manager.write_data(in_mem_collection)
+
+
+def view_current_owners(in_mem_collection):
+    for key in in_mem_collection.keys():
+        print(key)
+
+
+# Step 2
+def import_record_collections_from_file(json_manager):
     in_mem_collection = json_manager.fetch_data()
-    if not in_mem_collection:
-        in_mem_collection = {"andy": []}
-        json_manager.write_data(in_mem_collection)
-    andys_collection = RecordCollection()
-    andys_collection.record_collection = in_mem_collection["andy"]
-    return in_mem_collection, andys_collection, json_manager
+    return in_mem_collection
+
+
+def view_or_create_owner_input():
+    owner_input_choice = input(
+        "Would you like to: 1) add a new owner or 2) view current owners? "
+    )
+    return owner_input_choice
+
+
+def setup():
+    # Step 1
+    json_manager = JsonFileManager("collection.json")
+    in_mem_collection = import_record_collections_from_file(json_manager)
+    owner_input_choice = view_or_create_owner_input()
+
+    if owner_input_choice == "1":
+        create_new_owner(in_mem_collection, json_manager)
+
+    if owner_input_choice == "2":
+        view_current_owners(in_mem_collection)
 
 
 if __name__ == "__main__":
-    in_mem_collection, andys_collection, json_manager = setup()
-    run(andys_collection, in_mem_collection, json_manager)
-
-
-# Example usage
-# json_manager = JsonFileManager('data.json')
-#
-# # Fetch data from the JSON file
-# data = json_manager.fetch_data()
-# print(data)
-#
-# # Write new data to the JSON file
-# new_data = {"name": "John", "age": 30}
-# json_manager.get_data(new_data)
-#
-# # Update specific data in the JSON file
-# json_manager.update_data("age", 31)
+    print("Welcome")
+    setup()

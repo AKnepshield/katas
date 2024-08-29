@@ -1,44 +1,63 @@
 {
     "andy": [
         {
-            "artist": "artist",
-            "title": "album"
+            "artist": "new artist 15",
+            "title": "new album 15"
         },
         {
-            "artist": "new artist",
-            "title": "new album"
+            "artist": "new artist 2",
+            "title": "new ablum 2"
         },
         {
-            "artist": "new artist",
-            "title": "new album"
+            "artist": "new artit 16",
+            "title": "new album 16"
         },
         {
-            "artist": "artist",
-            "title": "album"
+            "artist": "new artist 16",
+            "title": "new album 16"
         },
         {
-            "artist": "new artist",
-            "title": "new album"
+            "artist": "new record 17",
+            "title": "new album 17"
         },
         {
-            "artist": "new artist 6",
-            "title": "new album 6"
+            "artist": "1",
+            "title": "2"
         },
         {
-            "artist": "new artist 7",
-            "title": "new album 7"
+            "artist": "3",
+            "title": "3"
         },
         {
-            "artist": "new artist 8",
-            "title": "new album 8"
+            "artist": "1",
+            "title": "1"
         },
         {
-            "artist": "new artist 9",
-            "title": "new album 9"
+            "artist": "2",
+            "title": "2"
         },
         {
-            "artist": "new artist 11",
-            "title": "new album 11"
+            "artist": "1",
+            "title": "1"
+        },
+        {
+            "artist": "2",
+            "title": "2"
         }
-    ]
+    ],
+    "bjorn": [
+        {
+            "artist": "new artist 3",
+            "title": "new album 3"
+        },
+        {
+            "artist": "new artist 3",
+            "title": "new album 3"
+        }
+    ],
+    "Tamara": [],
+    "Dan": [],
+    "Bill": [],
+    "Scotty": [],
+    "Scotty again": []
 }
