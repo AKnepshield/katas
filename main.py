@@ -15,6 +15,5 @@ def setup():
 
 
 if __name__ == "__main__":
-    print("Welcome")
     in_mem_collection, json_manager = setup()
     run(in_mem_collection, json_manager)

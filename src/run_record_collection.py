@@ -2,7 +2,9 @@ from src.owners_menu import view_or_create_owners_menu
 
 
 def run(in_mem_collection, json_manager):
-    view_or_create_owners_menu(in_mem_collection, json_manager)
+
+    while True:
+        view_or_create_owners_menu(in_mem_collection, json_manager)
 
     # count = 0
 
