@@ -3,17 +3,14 @@ from src.owners_menu import view_or_create_owners_menu
 
 def run(in_mem_collection, json_manager):
 
-    while True:
-        view_or_create_owners_menu(in_mem_collection, json_manager)
+    # 8
+    keep_running = True
+    # 8.5 - Checks if keep_running is True
+    while keep_running:
+        # 9
+        keep_running = view_or_create_owners_menu(in_mem_collection, json_manager)
+        # 16 - saving value to any_name
 
-    # count = 0
 
-    # while count < 2:
-    #     artist = input("Enter an artist: ")
-    #     album = input("Enter an album: ")
-    #     collection = andys_collection.add_record(artist, album)
-    #     retrieved_collection = andys_collection.get_record_collection()
-    #     print(retrieved_collection)
-    #     in_mem_collection[owner] = andys_collection.get_record_collection()
-    #     json_manager.write_data(in_mem_collection)
-    #     count += 1
+# TODO: Step 3 - Run function from run_record_collection
+# TODO: Step 4 - Change True to variable in while loop
